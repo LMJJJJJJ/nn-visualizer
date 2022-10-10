@@ -159,6 +159,16 @@ class RegionEmbedding(nn.Module):
             return self.forward(regional_features)
 
     def fit(self, data, params, verbose_dir=None):
+        """
+        Train the regional embedding
+        :param data: dict,
+                       - sample_features: with shape [N, d], d is the dimensionality of the input feature
+                       - target_probs: with shape [N, C], C is the # of categories
+                       - regional_features: with shape [N,
+        :param params:
+        :param verbose_dir:
+        :return:
+        """
         target_probs, regional_features, sample_embs, w_k, w_r = _parse_data(data, self.device)
         lambda_kl, lambda_mi, kl_sample_num, lr, momentum, wd, n_step = _parse_params(params)
 

@@ -29,6 +29,15 @@ def _parse_params(params):
 
 class SampleEmbedding(nn.Module):
     def __init__(self, in_dim, out_dim, transform=None, controller=40.0, kappa_m=10.0, device="cuda"):
+        """
+        Sample-level low dimensional representation
+        :param in_dim: the dimensionality of $f$ in Section 3.2
+        :param out_dim: the dimensionality of $g=Mf$
+        :param transform: You can also specify the transform from $f$ to $g$ by yourself
+        :param controller: to control the magnitude of $g$
+        :param kappa_m:
+        :param device:
+        """
         super(SampleEmbedding, self).__init__()
 
         self.device = device
@@ -113,6 +122,20 @@ class SampleEmbedding(nn.Module):
         self.transform.weight.data = torch.matmul(rot_mat.data.t(), self.transform.weight.data)
 
     def fit(self, data, params, align=None, verbose_dir=None):
+        """
+        Train the sample-wise embedding
+        :param data: dict,
+                       - regional_features: with shape [N, K, H, W], K is the number of channels,
+                                            HW are the height/width of the feature map
+                       - target_probs: with shape [N, C], C is the # of categories
+                       - sample_embs: with shape [N, d'(=3)], the trained sample embeddings
+                       - w_k: with shape [N, K], the importance weight $v^{(k)}$ of kernels
+                       - w_r: with shape [N, R=HW], the importance weight $w^{(r)}$ of regions
+        :param params:
+        :param align:
+        :param verbose_dir:
+        :return:
+        """
         features, target_probs = _parse_data(data, self.device)
         lr, momentum, wd, n_step = _parse_params(params)
         optimizer = optim.SGD(self.transform.parameters(), lr=lr, momentum=momentum, weight_decay=wd)
