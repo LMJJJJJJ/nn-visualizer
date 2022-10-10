@@ -2,7 +2,7 @@
 
 PyTorch implementation for the paper "[Visualizing the Emergence of Intermediate Visual Patterns in DNNs](https://arxiv.org/abs/2111.03505)" (NeurIPS 2021)
 
-<img src="./images/Visualization-NIPS2021-Poster.png" alt="poster" style="zoom:60%;" />
+<img src="./images/Visualization-NIPS2021-Poster.png" alt="poster" style="max-width:80%;" />
 
 ## Requirements
 
@@ -70,17 +70,17 @@ We have also provided demos to reproduce experimental results presented in the p
 
 - Visualize knowledge points in different layers, [`visualize-knowledge-point.ipynb`](./visualize-knowledge-point.ipynb)
 
-  <img src="./images/knowledge-point.png" alt="kp" style="zoom:40%;" />
+  <img src="./images/knowledge-point.png" alt="kp" style="max-width: 40%;" />
 
 
 - Visualize the change of knowlegde points before/after the adversarial attack, [`visualize-attack-region.ipynb`](./visualize-attack-region.ipynb)
 
-  <img src="./images/knowledge-point-adv.png" alt="kp-adv" style="zoom:60%;" />
+  <img src="./images/knowledge-point-adv.png" alt="kp-adv" style="max-width: 100%;" />
 
 
 - Visualize trajectory of regional features throughout the attack, [`visualize-attack-trajectory.ipynb`](./visualize-attack-trajectory.ipynb)
 
-  <img src="./images/trajectory-adv.png" alt="trajectory" style="zoom:60%;" />
+  <img src="./images/trajectory-adv.png" alt="trajectory" style="max-width:100%;" />
 
 ## Bibtex
 
