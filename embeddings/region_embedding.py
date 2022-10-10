@@ -162,9 +162,13 @@ class RegionEmbedding(nn.Module):
         """
         Train the regional embedding
         :param data: dict,
-                       - sample_features: with shape [N, d], d is the dimensionality of the input feature
+
+                       - regional_features: with shape [N, K, H, W], K is the number of channels,
+                                            HW are the height/width of the feature map
                        - target_probs: with shape [N, C], C is the # of categories
-                       - regional_features: with shape [N,
+                       - sample_embs: with shape [N, d'(=3)], the trained sample embeddings
+                       - w_k: with shape [N, K], the importance weight $v^{(k)}$ of kernels
+                       - w_r: with shape [N, R=HW], the importance weight $w^{(r)}$ of regions
         :param params:
         :param verbose_dir:
         :return:

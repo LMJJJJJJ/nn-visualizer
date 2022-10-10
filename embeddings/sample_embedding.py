@@ -125,12 +125,8 @@ class SampleEmbedding(nn.Module):
         """
         Train the sample-wise embedding
         :param data: dict,
-                       - regional_features: with shape [N, K, H, W], K is the number of channels,
-                                            HW are the height/width of the feature map
+                       - sample_features: with shape [N, d], d is the dimensionality of the input feature
                        - target_probs: with shape [N, C], C is the # of categories
-                       - sample_embs: with shape [N, d'(=3)], the trained sample embeddings
-                       - w_k: with shape [N, K], the importance weight $v^{(k)}$ of kernels
-                       - w_r: with shape [N, R=HW], the importance weight $w^{(r)}$ of regions
         :param params:
         :param align:
         :param verbose_dir:
