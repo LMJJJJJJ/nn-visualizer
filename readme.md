@@ -64,13 +64,11 @@ You can also specify the dataset and the DNN by yourself. For more information, 
 
 ## Demos
 
-We have also provided demos to reproduce experimental results presented in the paper. 
-
-- [ ] raw data will be uploaded soon.
+We have also provided demos to reproduce experimental results presented in the paper. Raw data will be uploaded soon.
 
 - Visualize knowledge points in different layers, [`visualize-knowledge-point.ipynb`](./visualize-knowledge-point.ipynb)
 
-  <img src="./images/knowledge-point.png" alt="kp" style="max-width: 40%;" />
+  <img src="./images/knowledge-point.png" alt="kp" style="zoom:80%;" />
 
 
 - Visualize the change of knowlegde points before/after the adversarial attack, [`visualize-attack-region.ipynb`](./visualize-attack-region.ipynb)
